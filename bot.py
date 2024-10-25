@@ -18,8 +18,8 @@ async def ip(ctx, ip_address):
             f"City: {data.get('city', 'N/A')}\n"
             f"Region: {data.get('regionName', 'N/A')}\n"
             f"Country: {data.get('country', 'N/A')}\n"
-            f"Zip code: {data.get('zip', 'N/A')}"
-            f"Timezone: {data.get('timezone', 'N/A')}"
+            f"Zip code: {data.get('zip', 'N/A')}\n"
+            f"Timezone: {data.get('timezone', 'N/A')}\n"
             f"ISP: {data.get('isp', 'N/A')}\n"
             f"Lat, Long: {data.get('lat', 'N/A')}, {data.get('lon', 'N/A')}"
         )
