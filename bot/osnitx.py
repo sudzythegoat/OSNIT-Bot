@@ -13,8 +13,7 @@ yt = "https://youtube.com/@"
 github = "https://github.com/"
 instagram = "https://instagram.com/"
 tiktok = "https://www.tiktok.com/@"
-name = input("Alias: ")
-def find(type):
+def find(type, name):
   while True:
     global startnum, numcount
     if numcount >= 10:
@@ -34,17 +33,12 @@ def find(type):
       val = f"{Fore.GREEN}{url}{Style.RESET_ALL}"
       prinvalid.append(val)
       break
-def main():
-  find(spotify)
-  find(yt)
-  find(github)
-  find(tiktok)
-  find(instagram)
-  print("Valid links:")
-  for url in prinvalid:
-    print(url)
-  print("Invalid links:")
-  for url in prininvalid:
-    print(url)
-if __name__ == "__main__":
-  main()
+class osnitx:
+  @staticmethod
+  def general(name):
+    find(spotify, name)
+    find(yt, name)
+    find(github, name)
+    find(tiktok, name)
+    find(instagram, name)
+osntix = osnitx()
