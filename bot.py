@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
 import requests
+import json
 bot = commands.Bot(command_prefix="?")
 infostuff = "## Welcome to Starry, and open source OSNIT discord bot\n"
-#cmds
 @bot.command()
 async def info(ctx):
     await ctx.send(infostuff)
@@ -26,5 +26,20 @@ async def ip(ctx, ip_address):
         await ctx.send(message)
     else:
         await ctx.send("An error has occurred")
-#end cmd
+@bot.command()
+async def search(ctx, website, name):
+    allowed = ["spotify.com/users", "twitter.com", "github.com"]
+    if website in allowed:
+        searched = await requests.get(f"https://{website}/{name}")
+        if searched.text.contains("404"):
+            await ctx.send(f"{name} was not found on {website}")
+        else:
+            await ctx.send(f"{name} found on {website} URL: https://{website}/{name}")
+    else:
+        await ctx.send("Must be a valid website (use ?allowed to see searchable websites)")
+@bot.command()
+async def allowed(ctx):
+    allowed = ["spotify.com/users", "twitter.com", "github.com"]
+    localmessage = "Allowed websites: spotify.com/users, twitter.com, github.com"
+    await ctx.send(localmessage)
 bot.run("private_token")
