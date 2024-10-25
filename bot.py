@@ -4,13 +4,9 @@ import requests
 import json
 from googlesearch import search
 bot = commands.Bot(command_prefix="?")
-infostuff = "## Welcome to Starry, and open source OSNIT discord bot\n"
-@bot.command()
-async def info(ctx):
-    await ctx.send(infostuff)
 @bot.command()
 async def ip(ctx, ip_address):
-    response = requests.get(f"http://ip-api.com/json/{ip_address}")
+    response = await requests.get(f"http://ip-api.com/json/{ip_address}")
     if response.statuscode == 200:
         data = response.json
         message = (
@@ -47,5 +43,30 @@ async def allowed(ctx):
 async def websearch(ctx, query, urls):
     for url in search(query, num_results=urls):
         searchurl = "\n".join(url)
-    urlmessage = 
+    urlmessage = f"Searched URLs: {searchurl}"
+    await ctx.send(urlmessage)
+@bot.command()
+async def fullsearch(ctx, name, ip):
+    response = await requests.get(f"http://ip-api.com/json/{ip")
+    if response.statuscode == 200:
+        data = response.json
+        query = name
+        for url in search(query, num_results=10):
+            prosearch = ", ".join(url)
+        message = (
+            f"**Username Info**"
+            f"Google Urls: {prosearch)"
+            f"Spotify: 
+            f"**IP Address Information**\n"
+            f"IP: {data['query']}\n"
+            f"City: {data.get('city', 'N/A')}\n"
+            f"Region: {data.get('regionName', 'N/A')}\n"
+            f"Country: {data.get('country', 'N/A')}\n"
+            f"Zip code: {data.get('zip', 'N/A')}\n"
+            f"Timezone: {data.get('timezone', 'N/A')}\n"
+            f"ISP: {data.get('isp', 'N/A')}\n"
+            f"Lat, Long: {data.get('lat', 'N/A')}, {data.get('lon', 'N/A')}"
+        )
+    else:
+        await ctx.send("An error has occurred")
 bot.run("private_token")
