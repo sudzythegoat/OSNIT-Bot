@@ -55,8 +55,8 @@ async def fullsearch(ctx, name, ip):
             prosearch = ", ".join(url)
         message = (
             f"**Username Info**"
-            f"Google Urls: {prosearch)"
-            f"Spotify:"
+            f"Google Urls: {prosearch}"
+            f"Spotify: {spotify}"
             f"**IP Address Information**\n"
             f"IP: {data['query']}\n"
             f"City: {data.get('city', 'N/A')}\n"
