@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import requests
 import json
+from googlesearch import search
 bot = commands.Bot(command_prefix="?")
 infostuff = "## Welcome to Starry, and open source OSNIT discord bot\n"
 @bot.command()
@@ -42,4 +43,9 @@ async def allowed(ctx):
     allowed = ["spotify.com/users", "twitter.com", "github.com"]
     localmessage = "Allowed websites: spotify.com/users, twitter.com, github.com"
     await ctx.send(localmessage)
+@bot.command()
+async def websearch(ctx, query, urls):
+    for url in search(query, num_results=urls):
+        searchurl = "\n".join(url)
+    urlmessage = 
 bot.run("private_token")
