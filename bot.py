@@ -47,7 +47,7 @@ async def websearch(ctx, query, urls):
     await ctx.send(urlmessage)
 @bot.command()
 async def fullsearch(ctx, name, ip):
-    response = await requests.get(f"http://ip-api.com/json/{ip")
+    response = await requests.get(f"http://ip-api.com/json/{ip}")
     if response.statuscode == 200:
         data = response.json
         query = name
