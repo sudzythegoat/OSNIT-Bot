@@ -53,6 +53,11 @@ async def fullsearch(ctx, name, ip):
         query = name
         for url in search(query, num_results=10):
             prosearch = ", ".join(url)
+        sspotify = await requests.get("https://spotify.com/users/{name}")
+        if "404" in sspotify.text:
+            spotify = "N/A"
+        elif not "404" in sspotify.text:
+            spotify = "https://spotify.com/users/{name}"
         message = (
             f"**Username Info**"
             f"Google Urls: {prosearch}"
