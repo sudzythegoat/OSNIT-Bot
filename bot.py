@@ -58,6 +58,7 @@ async def fullsearch(ctx, name, ip):
             spotify = "N/A"
         elif not "404" in sspotify.text:
             spotify = "https://spotify.com/users/{name}"
+        
         message = (
             f"**Username Info**"
             f"Google Urls: {prosearch}"
