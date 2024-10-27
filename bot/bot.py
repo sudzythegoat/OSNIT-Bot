@@ -21,7 +21,7 @@ async def search(ctx, username):
     valids = []
     pastebin = requests.get(f"https://pastebin.com/u/{username}/")
     if not "The requested page does not exist" in pastebin.text:
-        valids.append(f"https://pastebin/u/{username}/")
+        valids.append(f"https://pastebin.com/u/{username}/")
     github = requests.get(f"https://github.com/{username}")
     if not "404" in github.text:
         valids.append(f"https://github.com/{username}")
