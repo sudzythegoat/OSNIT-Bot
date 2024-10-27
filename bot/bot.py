@@ -16,6 +16,18 @@ async def gpt(ctx, *, prompt):
     )
     gpt_response = response.choices[0].message.content
     await ctx.send(gpt_response)
+@bot.command()
 async def search(ctx, username):
-    
+    valids = []
+    pastebin = requests.get(f"https://pastebin/u/{username}/")
+    if not "The requested page does not exist" in pastebin.text:
+        valids.append(f"https://pastebin/u/{username}/")
+    github = requests.get(f"https://github.com/{username}")
+    if not "404" in github.text:
+        valids.append(f"https://github.com/{username}")
+    if valids:
+        message = ", ".join(valids)
+        await ctx.send(message)
+    else:
+        await ctx.send("No profiles found")
 bot.run(token)
