@@ -19,7 +19,7 @@ async def gpt(ctx, *, prompt):
 @bot.command()
 async def search(ctx, username):
     valids = []
-    pastebin = requests.get(f"https://pastebin/u/{username}/")
+    pastebin = requests.get(f"https://pastebin.com/u/{username}/")
     if not "The requested page does not exist" in pastebin.text:
         valids.append(f"https://pastebin/u/{username}/")
     github = requests.get(f"https://github.com/{username}")
