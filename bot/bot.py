@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 from g4f.client import Client
+import requests
+import json
 token = ""
 intents = discord.Intents.default()
 intents.message_content = True
