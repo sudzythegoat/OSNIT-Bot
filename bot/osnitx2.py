@@ -12,6 +12,13 @@ class OsnitX:
         return location
     @staticmethod
     def iplocation(ip):
-        reqip = requests.get("https://ip-api.com/json/")
+        reqip = requests.get(f"http://ip-api.com/json/{ip}")
         ipinfo = reqip.json()
         returned = f'Location: {ipinfo.get["city", "N/A"]}, {ipinfo.get["region", "N/A"]}, {ipinfo.get["country", "N/A"]}'
+        return returned
+    @staticmethod
+    def socials(name):
+        actives = []
+        pastebin = requests.get(f"https://pastebin.com/u/{name}")
+        if not "The requested page does not exist" in pastebin.text:
+            actives.append(f"https://pastebin.com/u/{name}")
