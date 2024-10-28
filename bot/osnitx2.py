@@ -12,4 +12,4 @@ class OsnitX:
         return location
     @staticmethod
     def iplocation(ip):
-        
+        https://ip-api.com/json/
