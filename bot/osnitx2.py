@@ -25,4 +25,12 @@ class OsnitX:
         github = requests.get(f"https://github.com/{name}")
         if not "404" in github.text:
             actives.append(f"https://github.com/{name}")
+        if actives:
+            urls = ", ".join(actives)
+            return urls
+        else:
+            mess = f"No urls found for {name}"
+            return mess
+    @staticmethod
+    def 
         
