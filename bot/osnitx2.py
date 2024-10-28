@@ -22,3 +22,7 @@ class OsnitX:
         pastebin = requests.get(f"https://pastebin.com/u/{name}")
         if not "The requested page does not exist" in pastebin.text:
             actives.append(f"https://pastebin.com/u/{name}")
+        github = requests.get(f"https://github.com/{name}")
+        if not "404" in github.text:
+            actives.append(f"https://github.com/{name}")
+        
