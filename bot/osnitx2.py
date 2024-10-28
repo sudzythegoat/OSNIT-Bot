@@ -12,4 +12,6 @@ class OsnitX:
         return location
     @staticmethod
     def iplocation(ip):
-        https://ip-api.com/json/
+        reqip = requests.get("https://ip-api.com/json/")
+        ipinfo = reqip.json()
+        returned = f"Location: {ipinfo.get["city"]},
