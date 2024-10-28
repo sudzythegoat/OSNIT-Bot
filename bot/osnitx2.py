@@ -14,4 +14,4 @@ class OsnitX:
     def iplocation(ip):
         reqip = requests.get("https://ip-api.com/json/")
         ipinfo = reqip.json()
-        returned = f"Location: {ipinfo.get["city"]},
+        returned = f'Location: {ipinfo.get["city", "N/A"]}, {ipinfo.get["region", "N/A"]}, {ipinfo.get["country", "N/A"]}'
