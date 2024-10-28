@@ -29,8 +29,15 @@ class OsnitX:
             urls = ", ".join(actives)
             return urls
         else:
-            mess = f"No urls found for {name}"
-            return mess
+            return f"No urls found for {name}"
     @staticmethod
+    def google(query):
+        searches = []
+        for url in search(query, num_results=10):
+            searches.append(url)
+        if searches:
+            urls = ", ".join(searches)
+            return urls
+        else:
+            return "Error"
     def 
-        
