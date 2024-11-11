@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import requests
 import json
-from googlesearch import search
+# from googlesearch import search
 bot = commands.Bot(command_prefix=".")
 @bot.command()
 async def update(ctx, *version):
