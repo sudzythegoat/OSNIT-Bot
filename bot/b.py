@@ -30,4 +30,4 @@ async def ai(ctx, *prompt):
     res = requests.get("https://tilki.dev/api/hercai?soru={prompt}")
     re = res.json()
     answer = re.get["cevap"]
-    await ctx.send answer
+    await ctx.send(answer)
